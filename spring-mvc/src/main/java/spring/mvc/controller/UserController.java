@@ -1,9 +1,7 @@
 package spring.mvc.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import spring.mvc.service.IUserService;
 import spring.mvc.vo.Response;
 
@@ -17,7 +15,17 @@ public class UserController {
 
     @GetMapping("/")
     public Response getAllUserByPaging(){
-        return Response.ok();
+        return iUserService.getAllUser();
+    }
+
+    @PostMapping("/")
+    public Response createUser(){
+        return iUserService.createUser();
+    }
+
+    @GetMapping("/{id}")
+    public Response getUserById(@PathVariable String id){
+        return iUserService.getUserById(id);
     }
 
 }
