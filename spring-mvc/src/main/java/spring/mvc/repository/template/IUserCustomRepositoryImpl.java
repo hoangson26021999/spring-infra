@@ -6,7 +6,7 @@ import spring.mvc.repository.IUserCustomRepository;
 import spring.mvc.repository.model.UserModel;
 
 @RequiredArgsConstructor
-public class UserTemplateRepo implements IUserCustomRepository {
+public class IUserCustomRepositoryImpl implements IUserCustomRepository {
     private final MongoTemplate mongoTemplate;
 
     public UserModel createUser() {

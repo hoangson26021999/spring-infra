@@ -2,6 +2,7 @@ package spring.mvc.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import spring.mvc.vo.User;
 import spring.mvc.service.IUserService;
 import spring.mvc.vo.Response;
 
@@ -19,7 +20,10 @@ public class UserController {
     }
 
     @PostMapping("/")
-    public Response createUser(){
+    public Response createUser(@RequestBody User user){
+        System.out.println(user.getName());
+        System.out.println(user.getAge());
+        System.out.println(user.isStatus());
         return iUserService.createUser();
     }
 
