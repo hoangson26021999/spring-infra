@@ -18,6 +18,9 @@ public class TestApplication {
     @Value("${e}")
     private String e;
 
+    @Value("${q.e.r}")
+    private String QER;
+
     public static void main(String[] args) {
         SpringApplication.run(TestApplication.class, args);
     }
@@ -34,12 +37,17 @@ public class TestApplication {
 
     @Bean
     CommandLineRunner printAOnStartupD() {
-        return args -> System.out.println("d: " +d);
+        return args -> System.out.println("d: " + d);
     }
 
     @Bean
     CommandLineRunner printAOnStartupE() {
-        return args -> System.out.println("e: " +e);
+        return args -> System.out.println("e: " + e);
+    }
+
+    @Bean
+    CommandLineRunner printAOnStartupQER() {
+        return args -> System.out.println("QER: " + QER);
     }
 
 }
