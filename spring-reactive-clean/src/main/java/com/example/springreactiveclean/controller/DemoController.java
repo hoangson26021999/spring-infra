@@ -1,4 +1,4 @@
-package com.example.springreactive.controller;
+package com.example.springreactiveclean.controller;
 
 
 import org.springframework.http.MediaType;
@@ -10,7 +10,8 @@ import reactor.core.publisher.Flux;
 @RestController
 @RequestMapping(value = "/demo", produces = MediaType.APPLICATION_JSON_VALUE)
 public class DemoController {
-    @GetMapping
+
+    @GetMapping(value = "/hello")
     public Flux<String> hello() {
         String [] a = {"hello" , "world" , "reactive" , "spring" , "boot"};
         return Flux.fromArray(a).map(e -> {

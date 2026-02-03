@@ -6,6 +6,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.TimeZone;
+
 @SpringBootApplication
 public class TestApplication {
 
@@ -23,6 +27,18 @@ public class TestApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TestApplication.class, args);
+
+        System.out.println(System.currentTimeMillis());
+        System.out.println(LocalDateTime.now());
+        System.out.println(Instant.now());
+
+        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+
+        System.out.println(System.currentTimeMillis());
+        System.out.println(LocalDateTime.now());
+        System.out.println(Instant.now());
+
+
     }
 
     @Bean
